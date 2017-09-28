@@ -1,8 +1,13 @@
 # NanoBlog-Symfony3
-Simple Blog on Symfony 3.3 with autentication, authorization, admin directory, localization.
+Nano Blog on Symfony 3 with user and admin autentication, authorization, admin directory, localization.
 
-To Run:
+<h2>To Run:</h2>
 <p>composer install</p>
 <p>php bin/console doctrine:fixtures:load</p>
 <p>php bin/console server:run</p>
-<p>Open <a href="//localhost:8000" target="_blank">//localhost:8000</p>
+<p>Open <a href="http://localhost:8000" target="_blank">//localhost:8000</a></p>
+
+<h2>How to Work</h2>
+<p>Admin - alex:123</p>
+<p>User - max:123</p>
+

@@ -1,0 +1,57 @@
+parameters:
+    parameter_name: value
+
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    AppBundle\:
+        resource: '../../src/AppBundle/*'
+        exclude: '../../src/AppBundle/{Entity,Repository,Tests}'
+
+    AppBundle\Controller\:
+        resource: '../../src/AppBundle/Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+    AppBundle\Security\Authorization\Voter\ClientIpVoter:
+        arguments: ['@service_container', [127.0.0.2]]
+        tags:
+            - { name: security.voter }
+        public: false
+
+    AppBundle\Security\Authorization\Voter\PostVoter:
+        tags:
+            - { name: security.voter }
+        public: false
+
+    AppBundle\EventListener\MailListener:
+        arguments: ['@router', '@twig', '@mailer', '@templating']
+        tags:
+            - { name: kernel.event_listener, event: register.event.email_event, method: onMailEvent }
+
+    AppBundle\EventListener\MailForgotPasswordListener:
+        arguments: ['@mailer']
+        tags:
+            - { name: kernel.event_listener, event: forgot.password.event.email_fogot_password_event, method: onMailForgotPasswordEvent }
+
+    AppBundle\EventListener\RedirectToPreferredLocaleListener:
+        arguments: ['@router', '%app_locales%', '%locale%']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    slugger:
+        class: AppBundle\Utils\Slugger
+        public: true
+
+    markdown:
+        class: AppBundle\Utils\Markdown
+        public: true
+
+    AppBundle\Twig\AppExtension:
+        arguments: ['@markdown', '%app_locales%']
+        tags:
+            - { name: twig.extension }
+

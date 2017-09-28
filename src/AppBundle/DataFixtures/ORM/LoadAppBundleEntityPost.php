@@ -45,7 +45,7 @@ class LoadAppBundleEntityPost extends AbstractFixture implements OrderedFixtureI
 </ul>");
         $item1->setContentDe("<p>○ Benutzer sollten in der Lage sein, die Liste der Blog-Posts zu sehen, sobald er sich anmelden wird E-Mail Passwort ○ Benutzer sollten in der Lage sein, Blog-Post-Seite zu &ouml;ffnen, indem Sie auf einen beliebigen Blog-Titel in die Blog-Posts-Liste ○ Benutzer sollten in der Lage sein, die Liste der Blog-Posts und Blog-Post in einem anderen anzeigen Sprache (sowohl DE als auch EN sollte dem Benutzer zur Verf&uuml;gung stehen)</p>");
         $item1->setAuthorName("Alex");
-        $item1->setAuthorEmail("latunov@ok.de");
+        $item1->setAuthorEmail("alex@mail.ru");
         $item1->setPublishedAt(new \DateTime("2017-09-21 11:17:17"));
 
         $manager->persist($item1);
@@ -70,7 +70,7 @@ jede verfügbare Sprache (EN + DE):
 ■ E-Mail des Autors
 ■ Text veröffentlichen");
         $item2->setAuthorName("Alex");
-        $item2->setAuthorEmail("latunov@ok.de");
+        $item2->setAuthorEmail("alex@mail.ru");
         $item2->setPublishedAt(new \DateTime("2017-09-21 11:17:17"));
 
         $manager->persist($item2);

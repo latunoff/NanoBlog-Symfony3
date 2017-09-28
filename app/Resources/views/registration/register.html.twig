@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container">
+        <div class="container-inner">
+            {% for flash_message in app.session.flashbag.get('notice') %}
+	            <div class="alert alert-success" role="alert">
+	                {{ flash_message }}
+	            </div>
+	        {% endfor %}
+	  	<div class="well userform">
+			{{ form_start(form) }}
+			   	<fieldset>
+			   	<legend><i class="fa fa-user"></i>{{ 'title.register' |trans }}</legend>
+
+			    <div class="form-group">
+                    {{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.surname, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+			    	{{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
+			    </div>
+                <div class="form-group">
+			    	{{ form_row(form.username, { 'attr': {'class': 'form-control'} }) }}
+			    </div>
+                <div class="form-group">
+                    {{ form_row(form.password.first, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_row(form.password.second, { 'attr': {'class': 'form-control'} }) }}
+                </div>
+                <button class="btn btn-primary" type="submit">
+					<i class="fa fa-share"></i> {{ "button.register"|trans }}
+				</button>
+			    <hr>
+			    <p>{{ 'title.is_registered'|trans }}? >>  <a href="{{ path('security_login_form') }}">{{ "title.login"|trans }}</a></p>
+    		   	</fieldset>
+			{{ form_end(form) }}
+		</div>
+		</div>
+	</div>
+{% endblock %}
+
+

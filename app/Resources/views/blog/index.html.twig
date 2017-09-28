@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body_id 'blog_index' %}
+
+{% block main %}
+    {% if app.user %}
+        <ul class="list-group">
+        {% for post in posts %}
+            <li class="list-group-item">
+                <h2>
+                    <a href="{{ path('blog_post', { slug: post.slug }) }}">
+                        {{ post.title(app.request.getLocale()) }}
+                    </a>
+                </h2>
+                <em>{{ post.content(app.request.getLocale())|slice(0, 80) }}...</em>
+            </li>
+        {% else %}
+            <div class="well">{{ 'No Posts' }}</div>
+        {% endfor %}
+        </ul>
+        <div class="navigation text-center">
+            {{ pagerfanta(posts, 'twitter_bootstrap3', {routeName: 'blog_index_paginated' }) }}
+        </div>
+    {% else %}
+        <b>{{ 'label.login_need'|trans }}</b>
+    {% endif %}
+
+{% endblock %}

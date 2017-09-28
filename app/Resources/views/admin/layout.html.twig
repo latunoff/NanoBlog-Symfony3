@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block header_navigation_links %}
+    <li>
+        <a class="nav-link" href="{{ path('blog_index') }}">
+            <i class="fa fa-home"></i> {{ 'menu.goto_blog'|trans }}
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="{{ path('admin_user_index') }}">
+            <i class="fa fa-users"></i> {{ 'menu.users'|trans }}
+        </a>
+    </li>
+    <li>
+        <a class="nav-link" href="{{ path('admin_post_index') }}">
+            <i class="fa fa-list-alt"></i> {{ 'menu.post_list'|trans }}
+        </a>
+    </li>
+{% endblock %}

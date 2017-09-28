@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="container-inner">
+            {% if error %}
+		        <div class="alert alert-danger">
+		            {{ error.messageKey|trans(error.messageData, 'security') }}
+		        </div>
+		    {% endif %}
+            <div class="well userform">
+                <form action="{{ path('security_login_check') }}" method="post">
+                    <fieldset>
+                        <legend><i class="fa fa-lock"></i> {{ 'title.login'|trans}}</legend>
+                        <div class="form-group">
+                            <label for="username"> {{ 'label.username' |trans }}</label>
+                            <input type="text" id="username" name="_username" value="{{ last_username }}" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">{{ 'label.password' |trans }}</label>
+                            <input type="password" id="password" name="_password" class="form-control" />
+                        </div>
+                        <label>
+                        <div class="form-group">
+        	                <input type="checkbox" id="remember_me" name="_remember_me" />
+							<label for="remember_me"> {{ 'label.remember_me' |trans }}</label>
+                        </div>
+                        </label>
+                        <br>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fa fa-sign-in"></i> {{ 'action.sign_in' |trans }}
+                        </button>
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                        <hr>
+                        <div>
+                        <label class="pull forgot-pwd">
+		                    <a href="{{ path('user_forgot_password')}}">{{ 'label.password_forgot'|trans }}</a>
+						</label>
+                        </div>
+                        <hr>
+						<div class="form-group">
+                            {{ 'label.not_registered'|trans }} >> <a href="{{ path('user_registration') }}">{{ 'title.register' |trans }}</a>
+						</div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

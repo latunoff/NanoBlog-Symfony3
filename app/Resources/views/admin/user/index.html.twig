@@ -1,0 +1,55 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_user_index' %}
+
+{% block main %}
+    {% for flash_message in app.session.flashbag.get('notice') %}
+        <div class="alert alert-success" role="alert">
+	        {{ flash_message }}
+        </div>
+    {% endfor %}
+
+    <h1><i class="fa fa-users"></i>{{ 'title.user_list'|trans }}</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            	<th>ID</th>
+                <th><i class="fa fa-user"></i> {{ 'user.name'|trans }} </th>
+                <th><i class="fa fa-user"></i>  {{ 'user.surname'|trans }} </th>
+                <th><i class="fa fa-envelope"></i> Email</th>
+                <th><i class="fa fa-cogs"></i> Actions </th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+            	<td>{{ user.id }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <a href="{{ path('admin_user_show', { id: user.id }) }}" class="btn btn-sm btn-info"> {{ 'action.show'|trans }}</a>
+                    <a href="{{ path('admin_user_delete', { id: user.id }) }}" class="btn btn-sm btn-danger">
+                        <i class="fa fa-times"></i>
+                        {{ 'action.delete_user'|trans }}
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4" align="center">{{ 'Users not found!' }}</td>
+           </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation text-center">
+        {{ pagerfanta(users, 'twitter_bootstrap3', {routeName: 'user_index_paginated' }) }}
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section actions">
+    </div>
+{% endblock %}

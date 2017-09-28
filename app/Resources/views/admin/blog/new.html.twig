@@ -1,0 +1,24 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_post_new' %}
+
+{% block main %}
+    <h1>{{ 'title.post_new'|trans }}</h1>
+
+    {{ form_start(form) }}
+	    EN: {{ form_row(form.title_en, { attr: { class: 'form-control' } }) }}
+	    DE: {{ form_row(form.title_de, { attr: { class: 'form-control' } }) }}
+	    EN: {{ form_row(form.content_en, { attr: { class: 'form-control' } }) }}
+	    DE: {{ form_row(form.content_de, { attr: { class: 'form-control' } }) }}
+        {{ form_row(form.authorName, { attr: { class: 'form-control' } }) }}
+        {{ form_row(form.authorEmail, { attr: { class: 'form-control' } }) }}
+	    {{ form_row(form.publishedAt, { attr: { class: 'form-control' } }) }}
+		<hr>
+        <input type="submit" value="{{ 'action.create_post' |trans }}" class="btn btn-success" />
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+{% endblock %}

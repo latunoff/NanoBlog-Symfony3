@@ -1,0 +1,13 @@
+ul.nav li.open ul.dropdown-menu {
+    display: block;
+}
+#sidebar {
+    float: right;
+}
+.userform form {
+    width: 30%;
+    margin: 0 auto;
+}
+button, input.btn {
+    cursor: pointer;
+}

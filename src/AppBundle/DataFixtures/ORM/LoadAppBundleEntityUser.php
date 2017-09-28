@@ -38,7 +38,7 @@ class LoadAppBundleEntityUser extends AbstractFixture implements OrderedFixtureI
         $item1->setName("Alex");
         $item1->setSurname("Lat");
         $item1->setUsername("alex");
-        $item1->setEmail("latunov@ok.de");
+        $item1->setEmail("alex@mail.ru");
         $item1->setPassword("\$2y\$13\$VH39pG96J5eJHYfgU5RyLeLHRaGysXMj2Nj/xIT1T0my4eJdaHwhK");
         $item1->setIsActive(true);
         $item1->setToken("VYq2eg4RYmwHddS2Awj-SXU2i4OPMe8MglWZFTEt3to");
@@ -51,7 +51,7 @@ class LoadAppBundleEntityUser extends AbstractFixture implements OrderedFixtureI
         $item2->setName("Mad");
         $item2->setSurname("Max");
         $item2->setUsername("max");
-        $item2->setEmail("max@mail.com");
+        $item2->setEmail("max@mail.ru");
         $item2->setPassword("\$2y\$13\$F7t0DHPtS79Pckm7bj48j.hElODbyg0LJHh/edeftEyKGLQe4UQJi");
         $item2->setIsActive(true);
         $item2->setToken("Xi8vf7Ulxwa2b7DEfo5Q7Lb7mjDrzpv9j93rN9GCrmc");

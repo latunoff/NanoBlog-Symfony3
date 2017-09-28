@@ -1,0 +1,23 @@
+{{ form_start(form, { method: 'POST', action: path('comment_new', { 'postSlug': post.slug }) }) }}
+    {#  или проще форму отобразить так
+        {{ form_widget(form) }}
+    #}
+    <fieldset>
+        <legend>{{ 'Add Comment' }}</legend>
+
+        {{ form_errors(form) }}
+
+        <div class="form-group {% if not form.content.vars.valid %}has-error{% endif %}">
+            {{ form_label(form.content, 'label.content', { label_attr: { class: 'hidden' }}) }}
+
+            {# Render any errors for the "content" field (e.g. when a class property constraint failed) #}
+            {{ form_errors(form.content) }}
+
+            {{ form_widget(form.content, { attr: { rows: 10, class: 'form-control' } }) }}
+        </div>
+
+        <div class="form-group">
+	            <button class="btn btn-primary pull-right" type="submit">{{ 'Publish Comment' }}</button>
+        </div>
+    </fieldset>
+{{ form_end(form) }}

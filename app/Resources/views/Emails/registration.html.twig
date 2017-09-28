@@ -1,0 +1,8 @@
+<h2>You registered</h2>
+
+Hi {{ name }}! You're successfully registered.
+{{ token }}
+To active account, go to: <a href="{{ url('user_registration_confirm', { 'token':token }) }}">Active Account</a>
+To login, go to: <a href="{{ url('security_login_form') }}">Login</a>.
+
+Thanks!

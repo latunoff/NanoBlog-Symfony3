@@ -13,6 +13,10 @@ Run server:
 <pre>php bin/console server:run</pre>
 <p>Open <a href="http://localhost:8000" target="_blank">//localhost:8000</a></p>
 
+To install WYSIWYG editor:
+<pre>php bin/console ckeditor:install</pre>
+<pre>php bin/console assets:install web</pre>
+
 <h2>How to Work</h2>
 <p>Admin - alex:123</p>
 <p>User - max:123</p>
